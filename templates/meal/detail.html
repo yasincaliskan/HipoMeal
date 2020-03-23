@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+    {% block title %}Recipe Detail - {{ block.super }}{% endblock %}
+        {% block body %}
+
+<script>
+
+function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+function likeMeal() {
+        $.ajax({
+            url: window.location.pathname + 'like/',
+            data: {
+                'csrfmiddlewaretoken': getCookie('csrftoken'),
+            },
+            method: 'POST',
+            dataType: 'json',
+            success: function (data) {
+                $("#like_count").html(data["like_count"]);
+                if (data["liked"] === true) {
+                    $("#like").removeClass("btn-info").addClass("btn-secondary");
+                } else {
+                    $("#like").removeClass("btn-secondary").addClass("btn-info");
+                }
+            },
+            error: function(request, status, error){
+                window.location.href = '/login';
+            }
+        });
+    }
+    function rateMeal(rate){
+        $.ajax({
+            url: window.location.pathname + 'rate/',
+            data: {
+                'rate': rate,
+                'csrfmiddlewaretoken': getCookie('csrftoken'),
+            },
+            method: 'POST',
+            dataType: 'json',
+            success: function (data) {
+                $("#user-rate").html('Vote: ' + data["user_rate"]);
+                $("#rate-ratio").html(data["rate_average"] + ' / 5');
+            },
+            error: function(request, status, error){
+                window.location.href = '/login';
+            }
+        });
+    }
+
+</script>
+
+
+<div class="container col-md-6">
+    <div class="card promoting-card">
+      <div class="card-body d-flex flex-row">
+        <div>
+            <h4 class="card-title font-weight-bold mb-2">{{ meal.title }}</h4>
+            <h6>Chef: {{ meal.user }}</h6>
+
+               <ul class="list-unstyled list-inline rating mb-0">
+                      <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
+                      <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                      <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                      <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                      <li class="list-inline-item"><i class="fas fa-star-half-alt amber-text"></i></li>
+                      <li class="list-inline-item"><p class="text-muted">4.5 (413)</p></li>
+                </ul>
+             {{ meal.difficulty }}
+            <p class="card-text"><i class="far fa-clock pr-2"></i>{{ meal.publishing_date }} </p>
+        </div>
+      </div>
+
+      <div class="view overlay">
+        <img class="card-img-top rounded-0" src="{{ meal.image.url }}" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <div class="card-body">
+        <div class="collapse-content">
+            <h4>Description:</h4>
+            <p class="card-text">{{ meal.description | linebreaks }}</p>
+            <hr>
+            <h4>Ingredients:</h4>
+                ******************
+
+
+            <hr>
+            {% if request.user.is_authenticated %}
+            <button type="button" class="btn btn-secondary">Rate</button>
+
+
+                 <form method="POST">
+                {% csrf_token %}
+                {% if meal.is_user_liked %}
+                <button type="button" class="btn btn-success" id="like" onclick="likeMeal();">Like</button>
+                <small class="bg-light text-dark" id="like_count"> {{ meal.like_count }}</small>
+                {% else %}
+                <div class="btn btn-info btn-sm my-1 ml-2 mb-2" id="like" onclick="likeMeal();" style="cursor: pointer;">Like</div>
+                <small class="bg-light text-dark" id="like_count"> {{ recipe.like_count }}</small>
+                {% endif %}
+
+
+
+
+
+            <button type="button" class="btn btn-warning" onclick="window.location.href = '{{meal.get_absolute_url}}update';">Update</button>
+            <button type="button" class="btn btn-danger" onclick="window.location.href = '{{meal.get_absolute_url}}delete';">Delete</button>
+            {% endif %}
+         </div>
+      </div>
+    </div>
+    <br><hr><br>
+
+{% for comment in meal.comments.all %}
+<div class="card promoting-card">
+    <div class="card-body d-flex flex-row">
+        <h5>{{ comment.name }}  <small>-  {{ comment.comment_date|timesince }} ago</small></h5>
+    </div>
+    <div class="card-body collapse-content card-text">
+        <p class="card-text">{{ comment.content|linebreaks }}</p>
+    </div>
+</div>
+{% endfor %}
+<br><hr><br>
+    <div class="container">
+        {% include 'meal/comment.html' %}
+    </div>
+</div>
+
+
+        {% endblock %}

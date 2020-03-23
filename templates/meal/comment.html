@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+    {% block title %}Add Ingredient - {{ block.super }}{% endblock %}
+    {% block body %}
+
+
+{% load crispy_forms_tags %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-md-offset-6">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <h4>Add a comment</h4>
+
+                        {{ form|crispy }}
+
+                        <input type="submit" value="Send" class="btn btn-success">
+                    </form>
+                 </div>
+            </div>
+        </div>
+
+{% endblock %}

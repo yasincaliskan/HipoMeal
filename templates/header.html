@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-dark default-color">
+  <a class="navbar-brand" href="{% url 'meal:home' %}">Hipo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'meal:home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'meal:soup_index' %}">Soup</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'meal:meals_index' %}">Meal</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'meal:snack_index' %}">Snack</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'meal:dessert_index' %}">Dessert</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'accounts:about' %}">About</a>
+      </li>
+    </ul>
+  </div>
+
+  <form class="form-inline my-2 my-lg-0 ml-auto" method="GET" {% if request %} action="{% url 'meal:home' %}" {% endif %}>
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+      {% if request.user.is_authenticated %}
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'meal:create' %}">Add Recipe</a>
+              </li>
+{#              <li class="nav-item">#}
+{#                      <a class="nav-link" href="{% url 'accounts:profile' %}">Profile</a>#}
+{#              </li>#}
+          </ul>
+      {% endif %}
+      {% if not request.user.is_authenticated %}
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+              </li>
+            <li class="nav-item">
+                  <a class="nav-link" href="{% url 'accounts:register' %}">Sign Up</a>
+              </li>
+          <li class="nav-item"><a class="nav-link">   </a></li>
+          </ul>
+      {% else %}
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                  <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+            </li>
+             <li class="nav-item"><a class="nav-link">   </a></li>
+          </ul>
+      {% endif %}
+
+  </div>
+
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search" value="{{ request.GET.search }}">
+    <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
+
+  </form>
+
+</nav>

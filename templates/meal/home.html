@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="container col-md-6">
+
+    {% for m in meals %}
+    <div class="card promoting-card">
+      <div class="card-body d-flex flex-row">
+        <div>
+          <h4 class="card-title font-weight-bold mb-2"><i class="fas fa-utensils"></i>
+              {{ m.title }} - <small><i class="fas fa-user-alt"></i> {{ m.user }}</small></h4>
+          <p class="card-text">
+              <i class="fas fa-sort-numeric-down"></i>
+              Difficulty:
+              {% if m.difficulty == 1 %}
+                  Easy
+              {% elif m.difficulty == 2 %}
+                  Medium
+              {% elif m.difficulty == 3 %}
+                  Hard
+              {%  endif %}
+              <i class="far fa-clock pr-2"></i>{{ m.publishing_date }}
+          </p>
+        </div>
+      </div>
+
+        <div class="view overlay">
+            <img class="card-img-top rounded-0" src="{{ m.image.url }}" alt="Card image cap">
+            <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+      <div class="card-body">
+            <p class="card-text">{{ m.description|linebreaks|truncatechars:150 }}</p>
+      </div>
+
+    <button type="button" class="btn btn-default" onclick="window.location.href = '{{m.get_absolute_url}}';">Go Recipe</button>
+
+    </div>
+
+<br>
+
+{% endfor %}
+</div>
+
+
+ <div class="container col-md-2">
+
+      <h4><a class="article-title">Top Ingredients</a></h4>
+
+        <ul class="list-group">
+          {% for ingredient in ingredients %}
+
+          <a class="list-group-item list-group-item-light defa" href='?ingredients={{ ingredient.id }}'>
+              <span class="badge badge-danger badge-pill">{{ ingredient.count }}</span>  {{ ingredient }}
+            </a></h2>
+          {% endfor %}
+        </ul>
+
+
+  </div>
+<div class="container col-md-6">
+<nav aria-label="Page navigation example">
+    <ul class="pagination pg-blue">
+{% if is_paginated %}
+    {% if page_obj.has_previous %}
+        <li class="page-item">
+        <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link">Previous</a>
+        </li>
+    {% endif %}
+
+
+        <li class="page-item warning-color">
+        <span class="page-link">
+         {{ page_obj.number }}
+        </span>
+        </li>
+
+
+    {% if page_obj.has_next %}
+    <li class="page-item">
+            <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}"></a>
+            </li>
+    {% endif %}
+    {% endif %}
+        </ul>
+</nav>
+</div>
+
+</div>
+
+{%  endblock %}
