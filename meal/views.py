@@ -45,13 +45,13 @@ class MealDetailView(DetailView):
     template_name = 'meal/meal_detail.html'
 
     def get_queryset(self):
-        meal = Meal.objects.annotate(
+        meals = Meal.objects.annotate(
             rate_total=Sum('rates__points'),
             rate_count=Count('rates')
         ).annotate(
             rate_average=F('rate_total') / F('rate_count')
         ).all()
-        return meal
+        return meals
 
     def get_context_data(self, **kwargs):
         context = super(MealDetailView, self).get_context_data()
