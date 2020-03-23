@@ -76,40 +76,38 @@ function likeMeal() {
                 <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
                 <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
                 <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
-            {% elif meal.rate_average == 5 %}
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-            {% elif meal.rate_average < 5 %}
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
-
-            {% elif meal.rate_average < 4 %}
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
-
-            {% elif meal.rate_average < 3 %}
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
-                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
-
             {% elif meal.rate_average < 2 %}
                 <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
                 <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
                 <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
                 <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
                 <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
-            {% endif %}
+            {% elif meal.rate_average < 3 %}
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
+            {% elif meal.rate_average < 4 %}
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
+            {% elif meal.rate_average < 5 %}
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
+            {% elif meal.rate_average == 5 %}
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+             {% endif %}
+        
             <li class="list-inline-item"><p class="text-muted">{{ meal.rate_average|floatformat:2 }}</p></li>
         <i class="far fa-heart"></i> <a id="like_count"> {{ like_count }}</a>
          </ul>
