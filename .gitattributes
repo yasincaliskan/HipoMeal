@@ -1,4 +1,2 @@
-css/* linguist-vendored
-*.js linguist-detectable=false
-*.html linguist-detectable=false
-*.py liguist-detectable=true
+* linguist-vendored
+*.js linguist-vendored=false
