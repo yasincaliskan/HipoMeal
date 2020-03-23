@@ -37,28 +37,20 @@
       <div class="card-body">
             <p class="card-text">{{ m.description|linebreaks|truncatechars:150 }}</p>
       </div>
-
     <button type="button" class="btn btn-default" onclick="window.location.href = '{{m.get_absolute_url}}';">Go Recipe</button>
-
-    </div>
-
-<br>
-
+    </div><br>
 {% endfor %}
 </div>
 
 
  <div class="container col-md-2">
-
       <h4><a class="article-title">Top Ingredients</a></h4>
-
         <ul class="list-group">
-          {% for ingredient in ingredients %}
-
+{% for ingredient in ingredients %}
           <a class="list-group-item list-group-item-light defa" href='?ingredients={{ ingredient.id }}'>
               <span class="badge badge-danger badge-pill">{{ ingredient.count }}</span>  {{ ingredient }}
             </a></h2>
-          {% endfor %}
+{% endfor %}
         </ul>
 
 
@@ -67,12 +59,11 @@
 <nav aria-label="Page navigation example">
     <ul class="pagination pg-blue">
 {% if is_paginated %}
-    {% if page_obj.has_previous %}
+{% if page_obj.has_previous %}
         <li class="page-item">
         <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link">Previous</a>
         </li>
-    {% endif %}
-
+{% endif %}
 
         <li class="page-item warning-color">
         <span class="page-link">
@@ -80,18 +71,16 @@
         </span>
         </li>
 
-
-    {% if page_obj.has_next %}
+{% if page_obj.has_next %}
     <li class="page-item">
             <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link">Next</a>
             <a href="?page={{ page_obj.paginator.num_pages }}"></a>
             </li>
-    {% endif %}
-    {% endif %}
+{% endif %}
+{% endif %}
         </ul>
 </nav>
 </div>
-
 </div>
 
 {%  endblock %}

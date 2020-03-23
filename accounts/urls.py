@@ -8,5 +8,4 @@ urlpatterns = [
     path('register/', register_view, name="register"),
     path('logout/', logout_view, name="logout"),
     path('about/', about_view, name="about"),
-    # path('me/', profile_view, name="profile"),
 ]

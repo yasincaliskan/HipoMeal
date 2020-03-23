@@ -3,7 +3,6 @@ from .models import Meal, Ingredient, Comment
 
 
 class MealForm(forms.ModelForm):
-
     class Meta:
         model = Meal
         fields = [

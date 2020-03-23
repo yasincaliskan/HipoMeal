@@ -5,7 +5,6 @@ from .forms import MealForm, IngredientForm, CommentForm
 from django.db.models import Sum, Count, FloatField
 from django.db.models.functions import Cast
 from django.contrib import messages
-from django.core.paginator import Paginator
 from django.db.models import Q, F
 from django.views.generic import DetailView, ListView
 
@@ -46,8 +45,8 @@ class MealDetailView(DetailView):
 
     def get_queryset(self):
         meals = Meal.objects.annotate(
-            rate_total=Sum('rates__points'),
-            rate_count=Count('rates')
+            rate_total=Cast(Sum('rates__points'), FloatField()),
+            rate_count=Cast(Count('rates'), FloatField())
         ).annotate(
             rate_average=F('rate_total') / F('rate_count')
         ).all()
