@@ -21,15 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7g2spz5b24kb6(b-@@l*_98519z&=v0h0wozo-rj9m1)$l=p_*'
-# SECRET_KEY = os.environ.get('7g2spz5b24kb6(b-@@l*_98519z&=v0h0wozo-rj9m1)$l=p_*')
-# EMAIL_HOST_USER = os.environ.get('yaskocaliskan26@gmail.com')
-# EMAIL_HOST_PASSWORD = os.environ.get('')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'hipomeals.herokuapp.com']
+ALLOWED_HOSTS = ['hipomeals.herokuapp.com']
 
 # Application definition
 
@@ -84,27 +82,10 @@ WSGI_APPLICATION = 'hipo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hipo',
-        'USER': 'postgres',
-        'PASSWORD': 'iqb8v2',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-
-# DATABASES = {}
-# db_from_env = dj_database_url.config(conn_max_age=600)
-# DATABASES['default'].update(db_from_env)
+DATABASES = {}
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
