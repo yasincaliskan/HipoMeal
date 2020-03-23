@@ -26,7 +26,7 @@ class Meal(models.Model):
         (4, "Dessert")
     ]
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='meals', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     category = models.IntegerField(default=2, choices=CATEGORY_CHOICES)
     difficulty = models.IntegerField(default=1, choices=DIFFICULTY_CHOICES)
@@ -60,7 +60,7 @@ class Meal(models.Model):
 
 
 class Like(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='user_likes', on_delete=models.CASCADE)
     meal = models.ForeignKey(Meal, on_delete=models.CASCADE, related_name='likes')
     liked = models.BooleanField(default=False)
 
@@ -78,7 +78,6 @@ class Rate(models.Model):
 
 
 class Comment(models.Model):
-    # user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comment_user')
     meal = models.ForeignKey(Meal, related_name="comments", on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
     content = models.TextField()

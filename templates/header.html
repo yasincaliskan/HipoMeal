@@ -10,16 +10,16 @@
         <a class="nav-link" href="{% url 'meal:home' %}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'meal:soup_index' %}">Soup</a>
+        <a class="nav-link" name="category" href="{% url 'meal:home' %}?category=1">Soup</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="{% url 'meal:meals_index' %}">Meal</a>
+        <a class="nav-link" href="{% url 'meal:home' %}?category=2">Meal</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="{% url 'meal:snack_index' %}">Snack</a>
+        <a class="nav-link" href="{% url 'meal:home' %}?category=3">Snack</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="{% url 'meal:dessert_index' %}">Dessert</a>
+        <a class="nav-link" href="{% url 'meal:home' %}?category=4">Dessert</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'accounts:about' %}">About</a>

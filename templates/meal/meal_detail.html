@@ -111,7 +111,7 @@ function likeMeal() {
                 <li class="list-inline-item mr-0"><i class="fas fa-star"></i></li>
             {% endif %}
             <li class="list-inline-item"><p class="text-muted">{{ meal.rate_average|floatformat:2 }}</p></li>
-        <i class="far fa-heart"></i> <a id="like_count"> {{ meal.like_count }}</a>
+        <i class="far fa-heart"></i> <a id="like_count"> {{ like_count }}</a>
          </ul>
         <p class="card-text">
           <i class="fas fa-sort-numeric-down"></i>
@@ -162,7 +162,7 @@ function likeMeal() {
             <button type="button" class="btn btn-info" onclick="window.location.href = '{{meal.get_absolute_url}}comment';">Add Comment</button>
 
                 {% csrf_token %}
-                {% if meal.is_user_liked %}
+                {% if liked_by_user %}
                 <button type="button" class="btn btn-success" id="like" onclick="likeMeal();">Like</button>
 
                 {% else %}

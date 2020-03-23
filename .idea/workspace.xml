@@ -3,12 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="40e8ff14-2a30-4d6f-8e0c-aa1653b1f101" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hipo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/hipo/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/meal/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/meal/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/meal/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/meal/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/meal/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/meal/categories/dessert.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/meal/categories/meals.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/meal/categories/snack.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/meal/categories/soup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/meal/detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/meal/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/meal/meal_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/meal/meal_detail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +57,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Desktop/hipo" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -124,6 +129,7 @@
       <workItem from="1584906005456" duration="11380000" />
       <workItem from="1584949374795" duration="12023000" />
       <workItem from="1584977223766" duration="9798000" />
+      <workItem from="1584992469895" duration="4144000" />
     </task>
     <task id="LOCAL-00001" summary="Deploy to Heroku">
       <created>1584968671466</created>
