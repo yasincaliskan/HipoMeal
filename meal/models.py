@@ -52,6 +52,7 @@ class Meal(models.Model):
         return unique_slug
 
     def save(self, *args, **kwargs):
+        super().save(*args,**kwargs)
         self.slug = self.get_unique_slug()
         return super(Meal, self).save(*args, **kwargs)
 
