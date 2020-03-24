@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40e8ff14-2a30-4d6f-8e0c-aa1653b1f101" name="Default Changelist" comment="" />
+    <list default="true" id="40e8ff14-2a30-4d6f-8e0c-aa1653b1f101" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hipo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/hipo/settings.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +119,7 @@
       <workItem from="1584949374795" duration="12023000" />
       <workItem from="1584977223766" duration="9798000" />
       <workItem from="1584992469895" duration="7584000" />
-      <workItem from="1585040329142" duration="1937000" />
+      <workItem from="1585040329142" duration="3241000" />
     </task>
     <task id="LOCAL-00001" summary="Deploy to Heroku">
       <created>1584968671466</created>
