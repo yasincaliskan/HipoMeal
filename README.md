@@ -18,10 +18,10 @@ This website presents the recipes list and creates a new recipe. The app include
 
 ## Architecture
 
-- This project was created with [Django]([https://docs.djangoproject.com/en/3.0/](https://docs.djangoproject.com/en/3.0/))
-- [PostgreSQL]([https://www.postgresql.org/](https://www.postgresql.org/)) used as a database
-- [MDBootstrap]([https://mdbootstrap.com/](https://mdbootstrap.com/)) templates used for design.
-- Implemented 3rd party Django Apps: [CrispyForm](https://django-crispy-forms.readthedocs.io/en/latest/), [Cleanup]([https://pypi.org/project/django-cleanup/](https://pypi.org/project/django-cleanup/))
+- This project was created with [Django](https://docs.djangoproject.com/en/3.0/)
+- [PostgreSQL](https://www.postgresql.org/) used as a database
+- [MDBootstrap](https://mdbootstrap.com/) templates used for design.
+- Implemented 3rd party Django Apps: [CrispyForm](https://django-crispy-forms.readthedocs.io/en/latest/), [Cleanup](https://pypi.org/project/django-cleanup/)
 - The app is responsive.  
 - Django version ```3.0.4 ``` is used.  
   
