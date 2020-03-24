@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['hipomeals.herokuapp.com']
 
@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'hipo.wsgi.application'
 
 
 DATABASES = {}
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'] = db_from_env
+db_from_env = dj_database_url.config(default=os.getenv("DATABASE_URL"))
+# DATABASES['default'] = db_from_env
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
