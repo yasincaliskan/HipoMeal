@@ -1,5 +1,5 @@
 
-## Hipo Meals
+## Hipo Meal
 
 A simple recipe site. Share a recipe, like, vote, add a comment.
 
